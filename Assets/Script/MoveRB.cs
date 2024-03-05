@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoveRB : MonoBehaviour
 {
     [SerializeField]
-    public float speed = 10f;  // ความเร็วของเครื่องบิน
-    public float rotationSpeed = 100f;  // ความเร็วในการหมุน
+    public float speed = 10f;  
+    public float rotationSpeed = 100f;  
 
     private Rigidbody rb;
 
@@ -21,30 +21,31 @@ public class MoveRB : MonoBehaviour
         HandleInput();
     }
 
-    void HandleInput()
+    private void HandleInput()
     {
-        // เคลื่อนที่ไปข้างหน้า
+        
         if (Input.GetKey(KeyCode.W))
         {
             rb.AddForce(transform.forward * speed);
         }
 
-        // เลี้ยวซ้าย
+        
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
         }
 
-        // ถอยหลัง
+        
         if (Input.GetKey(KeyCode.S))
         {
             rb.AddForce(-transform.forward * speed);
         }
 
-        // เลี้ยวขวา
+        
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
+        
     }
 }
